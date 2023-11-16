@@ -1,3 +1,4 @@
+#Create classes
 class Node:
     def __init__(self, data):
         self.data = data
@@ -24,6 +25,7 @@ class Stack:
 def clean(c):
     return "".join(char.lower() for char in c if char.isalnum())
 
+#Checker and reversed for the sentence
 def checker(sentence):
     stack = Stack()
     cleaned = clean(sentence)
@@ -35,8 +37,10 @@ def checker(sentence):
 
     return cleaned, reverse
 
+#Display function where the ouput of the code will be displayed
 def display():
 
+    #Create options, to check and to exit
     while True:
         print("\n\t\t\t\t\tWelcome to Palindrome Checker!")
         print(f"{'=' * 70}")
@@ -44,6 +48,7 @@ def display():
         print("2. Exit")
         choice = int(input("\nSelect an option (1) Palindrome checker and (2) Exit: "))
 
+        #Ask the user if he/she really wants to exit the program
         if choice == 2:
             exit_choice = input("\nAre you sure you want to exit? (Yes or No): ")
             if exit_choice.lower() == "yes":
@@ -51,17 +56,22 @@ def display():
                 break
             elif exit_choice.lower() == "no":
                 continue
+
+            #Will be displayed if the user input an invalid option
             else:
                 print("Invalid Option. Please enter 'Yes' or 'No'")
         elif choice == 1:
+            #Asked the user to input a sentence or a word
             sentence = input("\nEnter a sentence or word to check if it is a palindrome or not: ")
             cleaned, reverse = checker(sentence)
 
+            #Will be displayed if the sentence or word is a palindrome or not
             if cleaned == reverse:
                 status = "a Palindrome"
             else:
                 status = "Not a Palindrome"
 
+            #print all the output
             print(f"{'-' * 70}")
             print("\n\t\t\t\t\t\t\t\tRESULT")
             print(f"{'-' * 70}")
